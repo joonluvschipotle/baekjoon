@@ -1,22 +1,16 @@
-primeList = [2]
+result = []
+candidates = range(3,1000)
+base = 2
+product = base
 
-def getPrime(number):
-    global primeList
-    num = 3
-
-    while (num <= number):
-        for x in primeList:
-            if (num%x == 0):
-                break
-            elif(x==primeList[-1]):
-                primeList.append(num)
-                break
-        num += 1
-
-a = input()
-b = a.split()
-getPrime(int(b[1]))
-
-for num in primeList:
-    if (num>=int(b[0])):
-        print (num)
+while candidates:
+    while product<1000:
+        if product in candidates:
+            candidates.remove(product)
+        product = product + base
+    result.append(base)
+    base = candidates[0]
+    product = base
+    del candidates[0]
+result.append(base)
+print (result)
