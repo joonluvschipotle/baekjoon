@@ -29,3 +29,5 @@ for i in range(0,trials):
 
 for i in text:
     print (i,end="")
+
+print ("")
