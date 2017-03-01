@@ -39,6 +39,7 @@ else:
         secondone = countNums(second)
         if firstone[0] > secondone[0]:
             print ("1 " + str(fi))
+        elif firstone[0]
     elif fi == th and fi > se:
         getthat = 2
     elif se == th and se > fi:
