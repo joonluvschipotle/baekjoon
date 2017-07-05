@@ -1,7 +1,7 @@
 a = int(input())
 q = []
 
-for i in range(0,a):
+for i in range(0,a+1):
     command = input().split()
     if command[0] == "push":
         q.append(int(command[1]))
