@@ -1,26 +1,22 @@
-def binToOct(x):
-    strx = str(x)
-    octa = 0
-    if len(strx) == 3:
-        octa = int(strx[0])*4 + int(strx[1])*2 + int(strx[1])
-    elif len(strx) == 2:
-        octa = int(strx[0])*2 + int(strx[1])
+import math
+b = input()
+count = math.ceil(len(b)/3)
+
+df = []
+for i in range(0,len(b)):
+    df.append(int(b[i]))
+
+octa = []
+for i in range(0,count):
+    dummy = df[-3:]
+    del df[-3:]
+    if len(dummy) > 2:
+        octad = dummy[0]*4 + dummy[1]*2 + dummy[2]*1
+    elif len(dummy) > 1:
+        octad = dummy[0]*2 + dummy[1]*1
     else:
-        octa = x
-    return octa
+        octad = dummy[0]*1
+    octa.append(octad)
 
-a = input()
-ans = ""
-if len(a)%3 == 0:
-    for i in range(0,int(len(a)/3)):
-        ans += str(binToOct(int(a[3*i:3*(i+1)])))
-elif len(a)%3 == 2:
-    ans += str(binToOct(int(a[0:2])))
-    for i in range(1,int(len(a)/3)):
-        ans += str(binToOct(int(a[3*i:3*(i+1)])))
-elif len(a)%3 == 1:
-    ans += str(binToOct(int(a[0:1])))
-    for i in range(1,int(len(a)/3)):
-        ans += str(binToOct(int(a[3*i:3*(i+1)])))
-
-print (ans)
+for i in range(0,len(octa)):
+    print(octa[len(octa)-i-1],end="")
