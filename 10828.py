@@ -1,23 +1,29 @@
-inputs = int(input())
+import sys
+r = lambda: sys.stdin.readline().strip()
+
+n = int(r())
+
 stack = []
-for i in range(0,inputs):
-    command = input().split()
-    if command[0] == "push":
-        stack.append(int(command[1]))
-    elif command[0] == "pop":
-        if len(stack) == 0:
-            print (-1)
+
+for k in range(n):
+    command = r()
+    if command[:4] == 'push':
+        num = int(command[4:])
+        stack.append(num)
+    elif command == 'top':
+        if len(stack) > 0:
+            print (stack[-1])
         else:
-            print(stack.pop())
-    elif command[0] == "size":
+            print (-1)
+    elif command == 'size':
         print (len(stack))
-    elif command[0] == "empty":
-        if len(stack) == 0:
+    elif command == 'empty':
+        if len(stack)==0:
             print (1)
         else:
             print (0)
-    elif command[0] == "top":
-        if len(stack) == 0:
-            print (-1)
+    elif command == 'pop':
+        if len(stack) > 0:
+            print (stack.pop())
         else:
-            print (stack[-1])
+            print (-1)
